@@ -14,3 +14,5 @@ ul.suggestion-list li.like-level-2 { color: orange; }
 ul.suggestion-list li.like-level-1 { color: red; }
 
 input#new-suggestion { margin: 5px 0; padding: 5px; width: 90%; }
+
+a.fork-me { position: absolute; top: 0; right: 0; border: 0; display: block; width: 149px; height: 149px; text-indent: -9999em; background: url('https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67') no-repeat top right; }
