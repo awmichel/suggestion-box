@@ -1,0 +1,37 @@
+<head>
+  <title>ICND Suggestion Box</title>
+  <link href="http://get.pictos.cc/fonts/1457/2" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>ICND Suggestion Box</h1>
+    {{>suggestion_list}}
+  </div>
+</body>
+
+<template name="suggestion_list">
+  <div id="new-suggestion-box">
+    <input id="new-suggestion" type="text" placeholder="New Suggestion">
+  </div>
+
+  {{#if has_suggestions}}
+    <ul class="suggestion-list">
+      {{#each suggestions}}
+          {{> suggestion_info}}
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>No suggestions have been made, be the first!</p>
+  {{/if}}
+</template>
+
+<template name="suggestion_info">
+  <li class="like-level-{{like_level}}">
+    <span class="editable">{{content}}</a>
+    <span class="likes">{{likes}} likes</span>
+    <a class="like" title="Like it!">Y</a>
+    <!--<a class="edit" title="Edit">E</a>-->
+    <!--<a class="delete" title="Remove">X</a>-->
+  </li>
+</template>
