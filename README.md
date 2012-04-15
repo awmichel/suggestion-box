@@ -6,7 +6,7 @@ Installation
 ------------
 1. Download and install Meteor from [here](http://docs.meteor.com/#quickstart).
 2. Clone this repository `git clone https://awmichel@github.com/awmichel/Suggestion-Box.git`
-3. Change into the Suggestion-Box directory `cd Suggestion-Box`
+3. `cd Suggestion-Box`
 4. Test locally using `meteor` or deploy to the meteor cloud `meteor deploy site.meteor.com`
 
 Notes
