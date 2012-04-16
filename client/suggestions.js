@@ -29,19 +29,33 @@ var make_okcancel_handler = function (options) {
   };
 };
 
+var determine_like_level = function() {
+  if (this.likes >= 20) {
+    return 3;
+  } else if (this.likes >= 10) {
+    return 2;
+  } else if (this.likes >= 5) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
 Template.suggestion_list.suggestions = function() {
-  return Suggestions.find({}, {sort: {likes: -1}});
+  return Suggestions.find({success: false}, {sort: {likes: -1}});
 };
 
 Template.suggestion_list.has_suggestions = function() {
   return (Suggestions.count == 0) ? false : true;
 }
 
+Template.suggestion_info.like_level = determine_like_level;
+
 Template.suggestion_list.events = {};
 Template.suggestion_list.events[ okcancel_events('#new-suggestion') ] =
   make_okcancel_handler({
     ok: function(text, evt) {
-      Suggestions.insert({content: text, likes: 1});
+      Suggestions.insert({content: text, likes: 1, success: false});
       evt.target.value = '';
     },
     cancel: function(evt) {
@@ -52,6 +66,9 @@ Template.suggestion_list.events[ okcancel_events('#new-suggestion') ] =
 Template.suggestion_info.events = {
   'click a.like': function() {
     Suggestions.update(this._id, {$inc: {likes: 1}});
+  },
+  'click a.complete': function() {
+    Suggestions.update(this._id, {$set: {success: true}});
   },
   'click a.edit': function() {
     
@@ -64,14 +81,8 @@ Template.suggestion_info.events = {
   }
 };
 
-Template.suggestion_info.like_level = function() {
-  if (this.likes >= 20) {
-    return 3;
-  } else if (this.likes >= 10) {
-    return 2;
-  } else if (this.likes >= 5) {
-    return 1;
-  } else {
-    return 0;
-  }
+Template.successful_suggestions.suggestions = function() {
+  return Suggestions.find({success: true}, {sort: {likes: -1}});
 }
+
+Template.successful_suggestions.like_level = determine_like_level;

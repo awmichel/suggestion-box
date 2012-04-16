@@ -6,8 +6,8 @@ h1, h2, h3, h4, h5, h6 { font-family: "Graduate", serif; }
 
 div#wrapper { width: 900px; margin: 20px auto; padding: 15px; background: #FAFAFA; border: 1px solid #000; border-radius: 10px; box-shadow: 2px 2px 3px #000; }
 
-ul.suggestion-list a.like, ul.suggestion-list a.delete, ul.suggestion-list a.edit { cursor: pointer; font-family: "Pictos Custom"; text-decoration: none; color: #000; }
-ul.suggestion-list a.like:hover, ul.suggestion-list a.delete:hover, ul.suggestion-list a.edit:hover { color: blue; }
+ul.suggestion-list a.like, ul.suggestion-list a.delete, ul.suggestion-list a.edit, ul.suggestion-list a.complete { cursor: pointer; font-family: "Pictos Custom"; text-decoration: none; color: #000; }
+ul.suggestion-list a.like:hover, ul.suggestion-list a.delete:hover, ul.suggestion-list a.edit:hover, ul.suggestion-list a.complete:hover { color: blue; }
 ul.suggestion-list li { margin: 5px 0; }
 ul.suggestion-list li.like-level-3 { color: green; }
 ul.suggestion-list li.like-level-2 { color: orange; }
