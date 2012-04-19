@@ -1,5 +1,6 @@
 // Suggestions -- {content: String, 
-//                 success: Boolean}
+//                 complete: Boolean,
+//                 timestamp: Number}
 Suggestions = new Meteor.Collection("suggestions");
 
 // Publish list of all suggestions to clients.

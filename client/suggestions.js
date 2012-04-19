@@ -42,7 +42,7 @@ var determine_like_level = function() {
 }
 
 Template.suggestion_list.suggestions = function() {
-  return Suggestions.find({success: false}, {sort: {likes: -1}});
+  return Suggestions.find({complete: false}, {sort: {likes: -1}});
 };
 
 Template.suggestion_list.has_suggestions = function() {
@@ -55,7 +55,12 @@ Template.suggestion_list.events = {};
 Template.suggestion_list.events[ okcancel_events('#new-suggestion') ] =
   make_okcancel_handler({
     ok: function(text, evt) {
-      Suggestions.insert({content: text, likes: 1, success: false});
+      Suggestions.insert({
+        content: text, 
+        likes: 1, 
+        complete: false, 
+        timestamp: (new Date()).getTime()
+      });
       evt.target.value = '';
     },
     cancel: function(evt) {
@@ -68,10 +73,7 @@ Template.suggestion_info.events = {
     Suggestions.update(this._id, {$inc: {likes: 1}});
   },
   'click a.complete': function() {
-    Suggestions.update(this._id, {$set: {success: true}});
-  },
-  'click a.edit': function() {
-    
+    Suggestions.update(this._id, {$set: {complete: true}});
   },
   'click a.delete': function() {
     var sure = confirm('Are you sure you want to delete this suggestion?');
@@ -81,8 +83,8 @@ Template.suggestion_info.events = {
   }
 };
 
-Template.successful_suggestions.suggestions = function() {
-  return Suggestions.find({success: true}, {sort: {likes: -1}});
+Template.completed_suggestions.suggestions = function() {
+  return Suggestions.find({complete: true}, {sort: {likes: -1}});
 }
 
-Template.successful_suggestions.like_level = determine_like_level;
+Template.completed_suggestions.like_level = 0;

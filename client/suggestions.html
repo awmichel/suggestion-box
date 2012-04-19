@@ -7,8 +7,7 @@
   <div id="wrapper">
     <h1>ICND Suggestion Box</h1>
     {{>suggestion_list}}
-    <h2>Completed Suggestions</h2>
-    {{>successful_suggestions}}
+    {{>completed_suggestions}}
   </div>
   <a href="https://github.com/awmichel/Suggestion-Box" class="fork-me">Fork Me on GitHub</a>
 </body>
@@ -29,7 +28,8 @@
   {{/if}}
 </template>
 
-<template name="successful_suggestions">
+<template name="completed_suggestions">
+  <h2>Completed Suggestions</h2>
   <ul class="suggestion-list successful">
     {{#each suggestions}}
       {{> suggestion_info}}
