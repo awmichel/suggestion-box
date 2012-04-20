@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg>
+<metadata>
+Created by FontForge 20110222 at Thu Apr 19 22:11:22 2012
+ By Adam Michel
+Icons by PJ Onori, font creation script by Yann
+</metadata>
+<defs>
+<font id="IconicFill" horiz-adv-x="1030" >
+  <font-face 
+    font-family="Untitled1"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1000"
+    panose-1="2 0 6 9 0 0 0 0 0 0"
+    ascent="800"
+    descent="-200"
+    bbox="15 -200 1015 800"
+    underline-thickness="50"
+    underline-position="-100"
+    unicode-range="U+0043-0053"
+  />
+    <missing-glyph />
+    <glyph glyph-name="C" unicode="C" 
+d="M15 175v312.5c0 172.594 139.906 312.5 312.5 312.5h312.5c207.156 0 375 -167.969 375 -375s-167.844 -375 -375 -375h-250c-68.9688 0 -125 -55.9062 -125 -125c-137.938 0 -250 111.938 -250 250z" />
+    <glyph glyph-name="D" unicode="D" 
+d="M1015 0.0712891l-200.071 -200.071l-299.929 300.071l-300.071 -300.071l-199.929 200.071l299.929 299.929l-299.929 299.929l199.929 200.071l300.071 -300.071l299.929 300.071l200.071 -200.071l-300.214 -299.929z" />
+    <glyph glyph-name="E" unicode="E" 
+d="M941.75 726.75c97.6562 -97.6562 97.6562 -255.844 0 -353.5l-573.25 -573.25h-353.5l0.96875 354.5l572.281 572.25c48.8125 48.8438 112.781 73.25 176.75 73.25c64.0938 0 128.062 -24.4062 176.75 -73.25zM316.75 -75l536.625 536.625v0l-176.75 176.75v0
+l-535.781 -535.875l-0.125 -52.5h124.281v-125h51.75z" />
+    <glyph glyph-name="S" unicode="S" 
+d="M388.156 -4.8125l-373.156 373.188l177.969 177.969l195.188 -195.188l448.875 448.844l177.969 -177.969z" />
+    <glyph glyph-name="L" unicode="L" 
+d="M515 679.875c50.4062 70.8125 129.031 120.125 222.281 120.125c153.219 0 277.719 -124.75 277.719 -277.844v-22.9375l-499.75 -574.219l-500.25 574.219v22.9375c0 153.094 124.5 277.844 277.719 277.844c93.25 0 171.875 -49.3125 222.281 -120.125z" />
+  </font>
+</defs></svg>

@@ -8,6 +8,9 @@ Session.set('suggestion_id', null);
 // Array of previously liked suggestions.
 Session.set('liked_suggestion_ids', []);
 
+// Boolean of admin status (waiting on Auth module)
+Session.set('admin', false);
+
 // Subscribe to 'suggestions' on startup.
 Meteor.subscribe('suggestions');
 
@@ -64,6 +67,11 @@ var determine_like_level = function() {
   }
 }
 
+var is_user_admin = function() {
+  if (Session.get('admin'))
+    return true;
+  return false;
+}
 
 ///////// Suggestion List //////////
 Template.suggestion_list.suggestions = function() {
@@ -93,6 +101,7 @@ Template.suggestion_list.events[ okcancel_events('#new-suggestion') ] =
 
 ///////// Suggestion Info /////////
 Template.suggestion_info.like_level = determine_like_level;
+Template.suggestion_info.is_admin = is_user_admin;
 
 Template.suggestion_info.timeago = function() {
   return new moment(this.timestamp).fromNow();

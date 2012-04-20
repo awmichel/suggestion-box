@@ -1,7 +1,6 @@
 <head>
   <title>Suggestion Box</title>
   <script src="javascripts/moment.js"></script>
-  <link href="http://get.pictos.cc/fonts/1457/2" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -46,10 +45,12 @@
     <span class="timestamp">Suggested {{timeago}}</span>
     <span class="likes">{{likes}} likes</span>
     {{#unless success}}
-      <a class="like" title="Like it!">Y</a>
-      <a class="complete" title="Complete">C</a>
-      <!--<a class="edit" title="Edit">E</a>-->
-      <!--<a class="delete" title="Remove">X</a>-->
+      <a class="like" title="Like it!">L</a>
+      {{#if is_admin}}
+        <a class="complete" title="Complete">S</a>
+        <a class="edit" title="Edit">E</a>
+        <a class="delete" title="Remove">D</a>
+      {{/if}}
     {{/unless}}
   </li>
 </template>

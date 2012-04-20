@@ -1,12 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Graduate);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+@font-face { font-family: 'IconicFill'; src: url('/fonts/iconic_fill.eot'); src: local('IconicFill'), url('/fonts/iconic_fill.svg#iconic') format('svg'), url('/fonts/iconic_fill.otf') format('opentype'); }
+
 body { background: #005A78 url('/images/noise.png') repeat; font: 14px "Open Sans", "Helvetica", "Arial", sans-serif; }
 h1, h2, h3, h4, h5, h6 { font-family: "Graduate", serif; }
 
 div#wrapper { width: 900px; margin: 20px auto; padding: 15px; background: #FAFAFA; border: 1px solid #000; border-radius: 10px; box-shadow: 2px 2px 3px #000; }
 
-ul.suggestion-list a.like, ul.suggestion-list a.delete, ul.suggestion-list a.edit, ul.suggestion-list a.complete { cursor: pointer; font-family: "Pictos Custom"; font-size: 1.3em; text-decoration: none; color: #000; }
+ul.suggestion-list a.like, ul.suggestion-list a.delete, ul.suggestion-list a.edit, ul.suggestion-list a.complete { cursor: pointer; font-family: "IconicFill"; font-size: 1.3em; text-decoration: none; color: #000; }
 ul.suggestion-list a.like:hover, ul.suggestion-list a.delete:hover, ul.suggestion-list a.edit:hover, ul.suggestion-list a.complete:hover { color: blue; }
 
 ul.suggestion-list li { margin: 12px 0; }
