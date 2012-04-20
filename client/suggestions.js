@@ -109,7 +109,14 @@ Template.suggestion_info.timeago = function() {
 
 Template.suggestion_info.events = {
   'click a.like': function() {
-    Suggestions.update(this._id, {$inc: {likes: 1}});
+    var user_likes = Session.get('liked_suggestion_ids');
+    if (user_likes.indexOf(this._id) < 0) {
+      Suggestions.update(this._id, {$inc: {likes: 1}});
+      user_likes.push(this._id)
+      Session.set('liked_suggestion_ids', user_likes);
+    } else {
+      alert("You have already liked this suggestion.");
+    }
   },
   'click a.complete': function() {
     Suggestions.update(this._id, {$set: {complete: true}});
