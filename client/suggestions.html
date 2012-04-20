@@ -53,11 +53,11 @@
           <li><a class="edit" title="Edit">E</a></li>
           <li><a class="delete" title="Remove">D</a></li>
         {{/if}}
+        {{#if active}}
+          {{> comment_list}}
+        {{/if}}
       </ul>
     {{/unless}}
-    {{#if active}}
-      {{> comment_list}}
-    {{/if}}
   </li>
 </template>
 
