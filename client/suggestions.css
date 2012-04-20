@@ -18,6 +18,10 @@ ul.suggestion-list li.like-level-1 { color: red; }
 
 ul.suggestion-list span.content::after { content: ' - '; }
 ul.suggestion-list span.likes { margin-left: 5px; background: #005A78; border-radius: 3px; padding: 2px 5px; color: #FFF; }
+ul.suggestion-list span.comments { margin-left: 2px; background: orange; border-radius: 3px; padding: 2px 5px; color: #FFF; }
+
+ul.actions { margin-left: 2px; border-radius: 3px; padding: 2px 5px; color: #FFF; display: inline-block; }
+ul.actions li { list-style: none; margin: 0; padding: 0; display: inline; }
 
 input#new-suggestion { margin: 5px 0; padding: 5px; width: 90%; }
 

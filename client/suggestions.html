@@ -44,13 +44,40 @@
     <span class="content">{{content}}</span>
     <span class="timestamp">Suggested {{timeago}}</span>
     <span class="likes">{{likes}} likes</span>
+    <span class="comments">{{comment_count}} comments</span>
     {{#unless success}}
-      <a class="like" title="Like it!">L</a>
-      {{#if is_admin}}
-        <a class="complete" title="Complete">S</a>
-        <a class="edit" title="Edit">E</a>
-        <a class="delete" title="Remove">D</a>
-      {{/if}}
+      <ul class="actions">
+        <li><a class="like" title="Like it!">L</a></li>
+        {{#if is_admin}}
+          <li><a class="complete" title="Complete">S</a></li>
+          <li><a class="edit" title="Edit">E</a></li>
+          <li><a class="delete" title="Remove">D</a></li>
+        {{/if}}
+      </ul>
     {{/unless}}
+    {{#if active}}
+      {{> comment_list}}
+    {{/if}}
+  </li>
+</template>
+
+<template name="comment_list">
+  <div id="comments-{{id}}" class="comments">
+    <ul class="comment-list">
+    {{#each comments}}
+      {{> comment}}
+    {{/each}}
+    </ul>
+    <div id="new-comment-box">
+      <textarea id="new-comment" type="text" placeholder="Add a Comment"></textarea>
+      <button class="add-comment">Add Comment</button>
+    </div>
+  </div>
+</template>
+
+<template name="comment">
+  <li>
+    <pre>{{content}}</pre>
+    <span class="timestamp">Added {{timeago}}</span>
   </li>
 </template>

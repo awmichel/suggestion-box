@@ -67,6 +67,12 @@ var determine_like_level = function() {
   }
 }
 
+// Wrapper for Moment.js fromNow function.
+var timeAgo = function() {
+  return new moment(this.timestamp).fromNow();
+}
+
+// Basic Admin functionality until Auth module is done.
 var is_user_admin = function() {
   if (Session.get('admin'))
     return true;
@@ -102,12 +108,20 @@ Template.suggestion_list.events[ okcancel_events('#new-suggestion') ] =
 ///////// Suggestion Info /////////
 Template.suggestion_info.like_level = determine_like_level;
 Template.suggestion_info.is_admin = is_user_admin;
+Template.suggestion_info.timeago = timeAgo;
 
-Template.suggestion_info.timeago = function() {
-  return new moment(this.timestamp).fromNow();
+Template.suggestion_info.comment_count = function() {
+  return Comments.find({suggestion_id: this._id}).count();
+}
+
+Template.suggestion_info.active = function() {
+  return Session.get('suggestion_id') == this._id;
 }
 
 Template.suggestion_info.events = {
+  'click': function() {
+    Session.set('suggestion_id', this._id);
+  },
   'click a.like': function() {
     var user_likes = Session.get('liked_suggestion_ids');
     if (user_likes.indexOf(this._id) < 0) {
@@ -128,6 +142,29 @@ Template.suggestion_info.events = {
     }
   }
 };
+
+///////// Comments //////////
+Template.comment_list.comments = function() {
+  return Comments.find({}, {sort: {timestamp: 1}});
+}
+
+Template.comment_list.events = {
+  'click button.add-comment': function(evt) {
+    var input = $('#new-comment', $(evt.target).parent());
+    var text = String(input.val() || "");
+    if (text) {
+      Comments.insert({
+        content: text,
+        suggestion_id: Session.get('suggestion_id'),
+        timestamp: (new Date()).getTime()
+      });
+      evt.target.value = '';
+    }
+  }
+};
+
+///////// Comment //////////
+Template.comment.timeago = timeAgo;
 
 ///////// Completed Suggestions /////////
 Template.completed_suggestions.suggestions = function() {
