@@ -158,7 +158,7 @@ Template.comment_list.events = {
         suggestion_id: Session.get('suggestion_id'),
         timestamp: (new Date()).getTime()
       });
-      evt.target.value = '';
+      input.val('');
     }
   }
 };
