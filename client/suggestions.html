@@ -1,5 +1,6 @@
 <head>
   <title>ICND Suggestion Box</title>
+  <script src="javascripts/moment.js"></script>
   <link href="http://get.pictos.cc/fonts/1457/2" rel="stylesheet" type="text/css">
 </head>
 
@@ -41,7 +42,8 @@
 
 <template name="suggestion_info">
   <li class="like-level-{{like_level}}">
-    <span class="editable">{{content}}</span>
+    <span class="content">{{content}}</span>
+    <span class="timestamp">Suggested {{timeago}}</span>
     <span class="likes">{{likes}} likes</span>
     {{#unless success}}
       <a class="like" title="Like it!">Y</a>

@@ -94,6 +94,10 @@ Template.suggestion_list.events[ okcancel_events('#new-suggestion') ] =
 ///////// Suggestion Info /////////
 Template.suggestion_info.like_level = determine_like_level;
 
+Template.suggestion_info.timeago = function() {
+  return new moment(this.timestamp).fromNow();
+}
+
 Template.suggestion_info.events = {
   'click a.like': function() {
     Suggestions.update(this._id, {$inc: {likes: 1}});

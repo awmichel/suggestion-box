@@ -8,10 +8,13 @@ div#wrapper { width: 900px; margin: 20px auto; padding: 15px; background: #FAFAF
 
 ul.suggestion-list a.like, ul.suggestion-list a.delete, ul.suggestion-list a.edit, ul.suggestion-list a.complete { cursor: pointer; font-family: "Pictos Custom"; font-size: 1.3em; text-decoration: none; color: #000; }
 ul.suggestion-list a.like:hover, ul.suggestion-list a.delete:hover, ul.suggestion-list a.edit:hover, ul.suggestion-list a.complete:hover { color: blue; }
+
 ul.suggestion-list li { margin: 12px 0; }
 ul.suggestion-list li.like-level-3 { color: green; }
 ul.suggestion-list li.like-level-2 { color: orange; }
 ul.suggestion-list li.like-level-1 { color: red; }
+
+ul.suggestion-list span.content::after { content: ' - '; }
 ul.suggestion-list span.likes { margin-left: 5px; background: #005A78; border-radius: 3px; padding: 2px 5px; color: #FFF; }
 
 input#new-suggestion { margin: 5px 0; padding: 5px; width: 90%; }
