@@ -15,6 +15,7 @@ ul.suggestion-list li { margin: 12px 0; }
 ul.suggestion-list li.like-level-3 { color: green; }
 ul.suggestion-list li.like-level-2 { color: orange; }
 ul.suggestion-list li.like-level-1 { color: red; }
+ul.suggestion-list li.active { /* TODO: Style active suggestion. */ }
 
 ul.suggestion-list span.content::after { content: ' - '; }
 ul.suggestion-list span.likes { margin-left: 5px; background: #005A78; border-radius: 3px; padding: 2px 5px; color: #FFF; }
@@ -22,6 +23,14 @@ ul.suggestion-list span.comments { margin-left: 2px; background: orange; border-
 
 ul.actions { margin-left: 2px; border-radius: 3px; padding: 2px 5px; color: #FFF; display: inline-block; }
 ul.actions li { list-style: none; margin: 0; padding: 0; display: inline; }
+
+ul.comment-list { color: #FFF; padding: 0; margin: 10px 50px; }
+ul.comment-list li { background: #333; list-style: none; display: block; padding: 10px; }
+ul.comment-list pre { font-family: "Open Sans", "Helvetica", "Arial", sans-serif; margin: 0 0 7px; }
+ul.comment-list p.timestamp { margin: 0; text-align: right; font-style: italic; }
+
+div#new-comment-box { background: #666; margin: 0 49px 10px 0; padding: 10px; }
+div#new-comment-box textarea { width: 775px; height: 75px; padding: 5px; }
 
 input#new-suggestion { margin: 5px 0; padding: 5px; width: 90%; }
 

@@ -40,7 +40,7 @@
 </template>
 
 <template name="suggestion_info">
-  <li class="like-level-{{like_level}}">
+  <li class="like-level-{{like_level}} {{#if active}}active{{/if}}">
     <span class="content">{{content}}</span>
     <span class="timestamp">Suggested {{timeago}}</span>
     <span class="likes">{{likes}} likes</span>
@@ -78,6 +78,6 @@
 <template name="comment">
   <li>
     <pre>{{content}}</pre>
-    <span class="timestamp">Added {{timeago}}</span>
+    <p class="timestamp">Added {{timeago}}</p>
   </li>
 </template>
