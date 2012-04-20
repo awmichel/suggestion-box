@@ -1,4 +1,26 @@
+// Define collections to match publish.js
 Suggestions = new Meteor.Collection("suggestions");
+Comments = new Meteor.Collection("comments");
+
+// ID of focused suggestion.
+Session.set('suggestion_id', null);
+
+// Array of previously liked suggestions.
+Session.set('liked_suggestion_ids', []);
+
+// Subscribe to 'suggestions' on startup.
+Meteor.subscribe('suggestions');
+
+// Autosubscribe to the selected suggestion's comment stream.
+Meteor.autosubscribe(function() {
+  var suggestion_id = Session.get('suggestion_id');
+  if (suggestion_id) {
+    Meteor.subscribe('comments', suggestion_id);
+  }
+});
+
+
+////////// Define Helper Functions //////////
 
 // Returns an event_map key for attaching "ok/cancel" events to
 // a text input (given by selector)
@@ -29,6 +51,7 @@ var make_okcancel_handler = function (options) {
   };
 };
 
+// Determine "like level" of a particular suggestion.
 var determine_like_level = function() {
   if (this.likes >= 20) {
     return 3;
@@ -41,15 +64,15 @@ var determine_like_level = function() {
   }
 }
 
+
+///////// Suggestion List //////////
 Template.suggestion_list.suggestions = function() {
   return Suggestions.find({complete: false}, {sort: {likes: -1}});
 };
 
 Template.suggestion_list.has_suggestions = function() {
-  return (Suggestions.count == 0) ? false : true;
+  return (Suggestions.find({complete: false}).count() == 0) ? false : true;
 }
-
-Template.suggestion_info.like_level = determine_like_level;
 
 Template.suggestion_list.events = {};
 Template.suggestion_list.events[ okcancel_events('#new-suggestion') ] =
@@ -68,6 +91,9 @@ Template.suggestion_list.events[ okcancel_events('#new-suggestion') ] =
     }
   });
 
+///////// Suggestion Info /////////
+Template.suggestion_info.like_level = determine_like_level;
+
 Template.suggestion_info.events = {
   'click a.like': function() {
     Suggestions.update(this._id, {$inc: {likes: 1}});
@@ -83,8 +109,13 @@ Template.suggestion_info.events = {
   }
 };
 
+///////// Completed Suggestions /////////
 Template.completed_suggestions.suggestions = function() {
-  return Suggestions.find({complete: true}, {sort: {likes: -1}});
+  return Suggestions.find({complete: true}, {sort: {timestamp: -1}});
+}
+
+Template.completed_suggestions.has_suggestions = function() {
+  return (Suggestions.find({complete: true}).count() == 0) ? false : true;
 }
 
 Template.completed_suggestions.like_level = 0;

@@ -24,17 +24,19 @@
       {{/each}}
     </ul>
   {{else}}
-    <p>No suggestions have been made, be the first!</p>
+    <p>No suggestions have been made, be the first! Enter a suggestion above.</p>
   {{/if}}
 </template>
 
 <template name="completed_suggestions">
-  <h2>Completed Suggestions</h2>
-  <ul class="suggestion-list successful">
-    {{#each suggestions}}
-      {{> suggestion_info}}
-    {{/each}}
-  </ul>
+  {{#if has_suggestions}}
+    <h2>Completed Suggestions</h2>
+    <ul class="suggestion-list successful">
+      {{#each suggestions}}
+        {{> suggestion_info}}
+      {{/each}}
+    </ul>
+  {{/if}}
 </template>
 
 <template name="suggestion_info">
